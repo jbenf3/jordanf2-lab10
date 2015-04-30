@@ -2,7 +2,7 @@
 
 # Your Name
 # Physics 91SI Spring 2013
-# Lab #10, Part 1 
+# Lab #10, Part 1
 
 # Hailstone sequence analyzer
 
@@ -22,19 +22,18 @@ def hailstone(n):
 
 def get_peaks(seq):
     """Find the number of peaks in the given sequence"""
-    # Your code goes here
+    # TODO Your code goes here
     pass
 
 
 def plot_seq(seq):
     """Plot a sequence and print the length of the sequence and number of
     peaks"""
+    # This is done for you but you need to implement get_peaks()
     p1 = plt.plot(seq, label=str(seq[0]))[0]
     color = p1.get_color()
-    # Use color=color as a kwarg to annotate if you want the colors to match
-    ##
-    # Your code goes here
-    ##
+    [plt.annotate(i[1],i,color=color) for i in get_peaks(seq)]
+    plt.show()
 
 
 def main():
@@ -46,8 +45,12 @@ def main():
         ns = range(1, N+1)
 
         ##
-        # Your code goes here
+        # TODO Your code goes here
+        # Create your hailstone sequences for the provided range
+        # Find the lengths
+        # Find the number of peaks
         ##
+
 
         # Skeleton plotting code
         plt.figure()
@@ -57,6 +60,7 @@ def main():
         plt.subplot(1,2,2)
         plt.plot(ns, num_peaks, 'o')
         plt.title("Number of Peaks")
+        plt.show()
 
     else:
         n = int(sys.argv[1])
@@ -64,5 +68,4 @@ def main():
 
 
 if __name__ == '__main__':
-    plt.ion()
     main()
